@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        Grade Report
+    </title>
+    <script src="functions.js"></script>
+</head>
+
+<body onload="ListGrades()">
+    <h2>School of Rock</h2>
+    <h3>Student: </h3>
+
+    <h4>Grades: </h4>
+    <ul id="gradeList"></ul>
+
+    <div class="info">
+        <h4>Average: <span id="average"></span></h4>
+        <button onclick="calculateAverage()">Calculate Average</button>
+
+        <h4>Highest Grade: <span id="highestGrade"></span></h4>
+        <button onclick="findHighestGrade()">Find the Highest Grade</button>
+
+        <h4>Failing Grade: <span id="failingGrade"></span></h4>
+        <button onclick="findFailingGrade()">Failing Grade?</button>
+    </div>
+</body>
+
+</html>

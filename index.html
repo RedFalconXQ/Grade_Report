@@ -7,12 +7,31 @@
     <script src="functions.js"></script>
 </head>
 
-<body onload="ListGrades()">
+<body>
     <h2>School of Rock</h2>
-    <h3>Student: </h3>
+
+    <h4>Student Name: </h4>
+    <input type="text" id="studentName" placeholder="Type your name">
+
+    <h4>Student Surname: </h4>
+    <input type="text" id="studentSurname" placeholder="Type your surname">
+    <p></p>
+
+    <button onclick="submitFullName()">Submit</button>
+    <h4>Student: <span id="fullName"></span></h4>
+
+    <h4>Amount of Grades: </h4>
+    <input type="number" id="amount" placeholder="Type the amount">
+    <button onclick="submitAmount()">Submit</button>
 
     <h4>Grades: </h4>
-    <ul id="gradeList"></ul>
+    <input type="number" id="grade" placeholder="Type the grade" min="0">
+    <button onclick="submitGrade()">Submit</button>
+
+    <h4>All Grades: </h4>
+    <button id="display" onclick="displayArray()">Display List</button>
+
+    <div id="gradeList"></div>
 
     <div class="info">
         <h4>Average: <span id="average"></span></h4>

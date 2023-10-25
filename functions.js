@@ -12,10 +12,6 @@ NOTE: Validate the grades' values from 0.0 to 5.0
       If there is a failing grade, the grade must be below 3.0 (insufficient)
 */
 
-//Pending to validate the grades' values from 0.0 to 5.0 with an ALERT message of "INVALID GRADE"
-//let arrayGrades = [4.0, 3.5, 5.0, 3.0, 2.5];
-//arrayGrades.push(4.5, 5, 2.0);
-
 var arrayGrades = [];
 //console.log(arrayGrades);
 
@@ -27,19 +23,30 @@ function submitAmount() {
     inputA.disabled = true;
 }
 
+var limitArray = 1;
+
 function submitGrade() {
     let inputG = document.getElementById("grade");
     let inputGrade = +document.getElementById("grade").value;
-    arrayGrades.unshift(inputGrade);
-    arrayGrades.pop();
-    if (arrayGrades.length >= inputGrade) {
-        inputG.disabled = false;
-        console.log(arrayGrades.length);
-    }
-    else {
+
+    if (limitArray > arrayGrades.length) {
+        alert("INPUT NOT ALLOWED");
         inputG.disabled = true;
     }
-    console.log(arrayGrades);
+    else {
+        if (inputGrade >= 0 && inputGrade <= 5) {
+            inputG.disabled = false;
+            arrayGrades.unshift(inputGrade);
+            arrayGrades.pop();
+            //console.log(arrayGrades.length);
+            limitArray++;
+        } else {
+            alert("INVALID GRADE" + "\n" + "Please type a grade between 0.0 and 5.0")
+        }
+        //console.log(arrayGrades);
+        //console.log(arrayGrades.length);
+        //console.log(limitArray);
+    }
 }
 
 function displayArray() {
@@ -65,12 +72,6 @@ function submitFullName() {
     inputS.disabled = true;
 
     document.getElementById("fullName").innerText = inputName + " " + inputSurname;
-}
-
-function validateGrade() {
-    if (arrayGrades[i] > highest) {
-        highest = arrayGrades[i];
-    }
 }
 
 function createGrade(idContainer, min, amountGrades) {
